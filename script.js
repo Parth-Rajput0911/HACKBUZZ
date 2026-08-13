@@ -97,7 +97,7 @@ setInterval(updateCountdown, 1000);
 */
 
 const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwGH7l6v4psJ1lfirx9gB9e60kHaagr8A4CdF0mUmaRAEulpuL2kkertc5iDtBAgx75/exec";
+    "https://script.google.com/macros/s/AKfycbxnrEp5MBtKpODU2vTVjM54EVhk6C-1IUtE1GA45-FKvmbP-tvihtK8CTs24jZrN5Jc/exec";
 
 
 /* =========================
