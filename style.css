@@ -176,20 +176,12 @@ select {
 
 .hero {
     min-height: 720px;
-
     position: relative;
     overflow: hidden;
-
     display: flex;
     align-items: center;
-
     background:
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(200, 255, 0, 0.12),
-            transparent 30%
-        ),
-        #080808;
+       rgb(45, 1, 1)
 }
 
 .hero-grid {
@@ -351,41 +343,44 @@ select {
 ========================= */
 
 .section {
-    padding: 110px 0;
+    padding: 50px 0;
+    border-radius: 20px;
 }
 
 .section-heading {
     max-width: 650px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .section-tag {
-    color: var(--accent);
-
-    font-size: 12px;
+    color:goldenrod;
+    font-size: 19px;
+    font-family:'Times New Roman', Times, serif;
     font-weight: 700;
-
     letter-spacing: 2px;
-
     margin-bottom: 12px;
+    
 }
 
-.section-heading h2 {
-    font-family: "Space Grotesk", sans-serif;
-
+.section-heading h2 
+{
+    padding-top: 20px;
+    color:whitesmoke;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: clamp(35px, 5vw, 60px);
-
     line-height: 1.1;
-
     margin-bottom: 20px;
 }
 
-.section-heading h2 span {
-    color: var(--accent);
+.section-heading h2 span 
+{
+    color:#C9A227;
+    text-decoration: wavy;
+    text-shadow: #8C6A16;
 }
-
-.section-heading > p:last-child {
-    color: var(--muted);
+.section-heading > p:last-child
+{
+    color:rgba(231, 233, 230, 0.751);
 }
 
 
@@ -394,7 +389,7 @@ select {
 ========================= */
 
 .about {
-    background: #0c0c0c;
+    background: #4a0202;
 }
 
 .feature-grid {
@@ -450,7 +445,7 @@ select {
 .stats-section {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-
+    background: rgb(60, 1, 1);
     padding: 50px 0;
 }
 
@@ -563,7 +558,8 @@ select {
 ========================= */
 
 .prizes {
-    background: #0c0c0c;
+    background: #390202;
+    border-color: #660404;
 }
 
 .prize-grid {
@@ -579,14 +575,21 @@ select {
 
 .prize-card {
     text-align: center;
-
     padding: 45px 25px;
+    background:
+        linear-gradient(
+            135deg,
+            #3a0208,
+            #240103
+        );
 
-    background: var(--card);
+    border: 1px solid rgba(212, 160, 23, 0.5);
 
-    border: 1px solid var(--border);
+    box-shadow:
+        0 0 20px rgba(212, 160, 23, 0.12),
+        inset 0 1px 0 rgba(255, 215, 100, 0.15);
 
-    border-radius: 12px;
+    border-radius: 18px;
 }
 
 .prize-card.first {
@@ -603,14 +606,14 @@ select {
 }
 
 .prize-card p {
-    color: var(--muted);
-
+    color:rgb(238, 237, 233);
+    font-family: 'Times New Roman', Times, serif;
     font-size: 12px;
     letter-spacing: 2px;
 }
 
 .prize-card h3 {
-    color: var(--accent);
+    color:goldenrod;
 
     font-family: "Space Grotesk", sans-serif;
 
