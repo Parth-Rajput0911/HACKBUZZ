@@ -6,10 +6,9 @@ const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
 
 menuButton.addEventListener("click", function () {
-
     navMenu.classList.toggle("active");
-
 });
+
 
 /* Close menu after clicking a link */
 
@@ -18,23 +17,18 @@ const navLinks = document.querySelectorAll(".nav-menu a");
 navLinks.forEach(function (link) {
 
     link.addEventListener("click", function () {
-
         navMenu.classList.remove("active");
-
     });
 
 });
+
 
 /* =========================
    COUNTDOWN TIMER
 ========================= */
 
-/*
-    Change this date to your actual
-    Hackbuzz event date.
-*/
-
-const eventDate = new Date("December 20, 2026 10:00:00").getTime();
+const eventDate =
+    new Date("December 20, 2026 10:00:00").getTime();
 
 
 function updateCountdown() {
@@ -59,18 +53,15 @@ function updateCountdown() {
         difference / (1000 * 60 * 60 * 24)
     );
 
-
     const hours = Math.floor(
         (difference % (1000 * 60 * 60 * 24))
         / (1000 * 60 * 60)
     );
 
-
     const minutes = Math.floor(
         (difference % (1000 * 60 * 60))
         / (1000 * 60)
     );
-
 
     const seconds = Math.floor(
         (difference % (1000 * 60))
@@ -81,14 +72,11 @@ function updateCountdown() {
     document.getElementById("days").innerText =
         String(days).padStart(2, "0");
 
-
     document.getElementById("hours").innerText =
         String(hours).padStart(2, "0");
 
-
     document.getElementById("minutes").innerText =
         String(minutes).padStart(2, "0");
-
 
     document.getElementById("seconds").innerText =
         String(seconds).padStart(2, "0");
@@ -101,21 +89,26 @@ setInterval(updateCountdown, 1000);
 
 
 /* =========================
-   REGISTRATION FORM
+   GOOGLE SHEETS BACKEND
 ========================= */
 
+/*
+   Your Google Apps Script Web App URL
+*/
 
 const GOOGLE_SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbwGH7l6v4psJ1lfirx9gB9e60kHaagr8A4CdF0mUmaRAEulpuL2kkertc5iDtBAgx75/exec";
 
 
+/* =========================
+   REGISTRATION FORM
+========================= */
+
 const form =
     document.getElementById("registrationForm");
 
-
 const message =
     document.getElementById("formMessage");
-
 
 const submitButton =
     document.getElementById("submitButton");
@@ -126,30 +119,36 @@ form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
 
-    message.className = "form-message";
+    /* Reset message */
 
+    message.className = "form-message";
     message.innerText = "";
 
+
+    /* =========================
+       GET FORM DATA
+    ========================= */
 
     const name =
         document.getElementById("name").value.trim();
 
-
     const email =
         document.getElementById("email").value.trim();
-
 
     const phone =
         document.getElementById("phone").value.trim();
 
-
-    const college =
-        document.getElementById("college").value.trim();
-
-
     const year =
         document.getElementById("year").value;
 
+    const branch =
+        document.getElementById("Branch").value;
+
+    const section =
+        document.getElementById("Section").value;
+
+    const college =
+        document.getElementById("college").value.trim();
 
     const team =
         document.getElementById("team").value.trim();
@@ -159,12 +158,9 @@ form.addEventListener("submit", async function (event) {
        VALIDATION
     ========================= */
 
-
     if (name.length < 3) {
 
-        showError(
-            "Please enter a valid name."
-        );
+        showError("Please enter a valid name.");
 
         return;
     }
@@ -198,16 +194,6 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    if (college.length < 2) {
-
-        showError(
-            "Please enter your college name."
-        );
-
-        return;
-    }
-
-
     if (year === "") {
 
         showError(
@@ -218,10 +204,49 @@ form.addEventListener("submit", async function (event) {
     }
 
 
+    if (branch === "") {
+
+        showError(
+            "Please select your branch."
+        );
+
+        return;
+    }
+
+
+    if (section === "") {
+
+        showError(
+            "Please select your section."
+        );
+
+        return;
+    }
+
+
+    if (college.length < 2) {
+
+        showError(
+            "Please enter your college name."
+        );
+
+        return;
+    }
+
+
+    if (team.length < 2) {
+
+        showError(
+            "Please enter your team name."
+        );
+
+        return;
+    }
+
+
     /* =========================
        PREPARE DATA
     ========================= */
-
 
     const data = {
 
@@ -231,19 +256,28 @@ form.addEventListener("submit", async function (event) {
 
         phone: phone,
 
-        college: college,
-
         year: year,
+
+        branch: branch,
+
+        section: section,
+
+        college: college,
 
         team: team
 
     };
 
 
-    /* =========================
-       SUBMIT
-    ========================= */
+    console.log(
+        "Registration Data:",
+        data
+    );
 
+
+    /* =========================
+       SUBMIT BUTTON
+    ========================= */
 
     submitButton.disabled = true;
 
@@ -251,14 +285,21 @@ form.addEventListener("submit", async function (event) {
         "Submitting...";
 
 
+    /* =========================
+       SEND TO GOOGLE SHEETS
+    ========================= */
+
     try {
 
         /*
-            Send data to Google Apps Script.
+           IMPORTANT:
+           text/plain prevents CORS preflight
+           with Google Apps Script.
         */
 
-        const response =
-            await fetch(GOOGLE_SCRIPT_URL, {
+        await fetch(
+            GOOGLE_SCRIPT_URL,
+            {
 
                 method: "POST",
 
@@ -267,25 +308,37 @@ form.addEventListener("submit", async function (event) {
                 headers: {
 
                     "Content-Type":
-                        "application/json"
+                        "text/plain;charset=utf-8"
 
                 },
 
-                body: JSON.stringify(data)
+                body:
+                    JSON.stringify(data)
 
-            });
+            }
+        );
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
 
         showSuccess(
             "Registration submitted successfully! 🚀"
         );
 
 
+        /* Clear form */
+
         form.reset();
 
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Registration Error:",
+            error
+        );
 
 
         showError(
@@ -294,6 +347,10 @@ form.addEventListener("submit", async function (event) {
 
     }
 
+
+    /* =========================
+       RESET BUTTON
+    ========================= */
 
     submitButton.disabled = false;
 
@@ -304,26 +361,30 @@ form.addEventListener("submit", async function (event) {
 
 
 /* =========================
-   MESSAGE FUNCTIONS
+   ERROR MESSAGE
 ========================= */
-
 
 function showError(text) {
 
     message.className =
         "form-message error";
 
-    message.innerText = text;
+    message.innerText =
+        text;
 
 }
 
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
 
 function showSuccess(text) {
 
     message.className =
         "form-message success";
 
-    message.innerText = text;
+    message.innerText =
+        text;
 
 }
-
