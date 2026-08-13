@@ -792,7 +792,6 @@ footer
     border: 1px solid #e6e4de;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     background:linear-gradient(
