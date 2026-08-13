@@ -785,7 +785,8 @@ footer
 
 .footer-container {
     text-align: center; flex: 1;
-    max-width: auto;
+    width:100%;
+    height: auto;
     color: white;
     border-radius: 12px;
     border: 1px solid #e6e4de;
@@ -814,13 +815,34 @@ footer
 
 .footer-logo {
     font-family: "Space Grotesk", sans-serif;
+    justify-content: space-between;
     font-size: 25px;
     font-weight: 700;
-    padding-bottom:20px ;
+    padding-bottom:10px ;
+    color: gold;
+    background: linear-gradient(
+        180deg,
+        #8c6508 0%,
+        #d4af37 18%,
+        #fffbd0 30%,
+        #ffd700 38%,
+        #b8860b 52%,
+        #fff8b0 65%,
+        #d4af37 75%,
+        #ffd700 88%,
+        #8c6508 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 3px 3px rgba(0,0,0,.5))
+            drop-shadow(0 0 6px rgba(255,215,0,.25));
+    
 }
 
 .footer-logo span {
-    color: var(--gold)
+    color: gold;
 }
 
 .footer-container p {
@@ -831,23 +853,27 @@ footer
 
 .copyright {
     font-size: 12px;
-
     margin-top: 25px !important;
+    padding: 10px;
+    color: rgb(70, 67, 67);
 }
 .footer-links
 {
      display:flex;
-    justify-content:center;
+    justify-content:space-between;
     gap:25px;
     list-style:none;
-    padding:0;
-    margin:0;
+    color: goldenrod;
+    width: auto;
 }
+
 
 
 /* =========================
    RESPONSIVE
 ========================= */
+
+
 
 @media (max-width: 850px) {
 
@@ -931,7 +957,6 @@ footer
         border-right: none;
     }
 }
-
 
 @media (max-width: 600px) {
 
