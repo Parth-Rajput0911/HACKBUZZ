@@ -791,7 +791,7 @@ footer
     border-radius: 12px;
     border: 1px solid #e6e4de;
     display: flex;
-    align-items: center;
+    
     flex-direction: column;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
