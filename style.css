@@ -67,13 +67,13 @@ select {
 ========================= */
 
 :root {
-    --bg: #080808;
-    --card: #111111;
-    --card-light: #181818;
-    --text: #ffffff;
-    --muted: #999999;
-    --accent: #c8ff00;
-    --border: #292929;
+        --bg: #fffefe;
+        --card: #fffdfd;
+        --card-light: #ffffff;
+        --text: #ffffff;
+        --muted: #999999;
+        --accent: goldenrod;
+        --border: #292929;
 }
 
 
@@ -802,15 +802,14 @@ select {
 
 footer 
 {
-    background: var(--brown-dark);
+    
     border-top: 2px solid var(--gold);
     padding: 45px 0;
 }
 
 .footer-container {
     text-align: center; flex: 1;
-    min-width: 340px;
-    max-width: 25%;
+    max-width: auto;
     color: white;
     border-radius: 12px;
     border: 1px solid #e6e4de;
@@ -839,10 +838,9 @@ footer
 
 .footer-logo {
     font-family: "Space Grotesk", sans-serif;
-
     font-size: 25px;
-
     font-weight: 700;
+    padding-bottom:20px ;
 }
 
 .footer-logo span {
