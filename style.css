@@ -38,7 +38,7 @@ body
         135deg,
         #160104 0%,
         #3b020c 35%,
-        #5a0715 55%,
+        #4e0511 55%,
         #320209 75%,
         #100002 100%
     );
@@ -86,9 +86,29 @@ select {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(43, 26, 18, 0.95);
     backdrop-filter: blur(15px);
-    border-bottom: 2px solid var(--gold);
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(120, 5, 20, 0.18),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            circle at top right,
+            rgba(90, 2, 15, 0.15),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #160102 0%,
+            #240103 45%,
+            #300208 70%,
+            #180102 100%
+        );
+
+    border-bottom: 1px solid rgba(212, 160, 23, 0.5);
 }
 
 .nav-container {
@@ -99,19 +119,7 @@ select {
     justify-content: space-between;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.logo span:last-child span {
-    color: var(--accent);
-}
 .logo-png
 {
     object-fit: cover;
@@ -119,27 +127,18 @@ select {
     font-weight:bold;
     width:60px;
     height:60px;
-    align-items: start;
+    align-items:left;
+    border-radius: 30px;
     
 }
 .img
 {
     width:100%;
     height:auto;
+    border-radius: 30px;
+    align-items: left;
 }
-.logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    width: 40px;
-    height: 40px;
-
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-
-    color: var(--accent);
-}
 
 .nav-menu {
     display: flex;
@@ -149,12 +148,13 @@ select {
 
 .nav-menu a {
     color: #cccccc;
-    font-size: 14px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
     transition: 0.3s;
 }
 
 .nav-menu a:hover {
-    color: var(--accent);
+    color:rgb(211, 155, 0)
 }
 
 .menu-button {
@@ -196,24 +196,7 @@ select {
     position: absolute;
     inset: 0;
 
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 50px 50px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent
-    );
+    
 }
 
 .hero-content {
