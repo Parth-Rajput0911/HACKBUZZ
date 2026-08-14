@@ -28,7 +28,7 @@ navLinks.forEach(function (link) {
 ========================= */
 
 const eventDate =
-    new Date("December 20, 2026 10:00:00").getTime();
+    new Date("August 15, 2026 10:00:00").getTime();
 
 
 function updateCountdown() {
