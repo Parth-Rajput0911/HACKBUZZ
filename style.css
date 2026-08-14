@@ -116,7 +116,7 @@ select
 {
     width:100%;
     height:auto;
-    border-radius: 30px;
+    border-radius:30px;
     align-items: left;
 }
 .nav-menu 
@@ -134,7 +134,7 @@ select
 }
 .nav-menu a:hover 
 {
-    color:rgb(211, 155, 0)
+    color:goldenrod;
 }
 .menu-button 
 {
